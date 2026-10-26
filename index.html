@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Blaster — Design Switchboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button id="panel-toggle" title="Presenter settings (P)">&#9881;</button>
+
+<main id="app-container">
+
+  <!-- PRESENTER PANEL -->
+  <div id="presenter-panel" class="screen">
+    <h2>Password Blaster</h2>
+    <p class="sub">Same content. Same mechanic. Only the design choices change.</p>
+
+    <div id="presets">
+      <button class="preset" data-preset="full"><span class="k">1</span> Full version<small>Briefing + corrective feedback</small></button>
+      <button class="preset" data-preset="stripped"><span class="k">2</span> Briefing &amp; feedback OFF<small>Same content, same mechanic</small></button>
+      <button class="preset" data-preset="persona"><span class="k">3</span> Wrong player persona<small>Small text, faster fall</small></button>
+    </div>
+
+    <div id="switches">
+      <label><input type="checkbox" id="sw-briefing"> Rules briefing before play</label>
+      <label><input type="checkbox" id="sw-feedback"> Corrective feedback on mistakes</label>
+      <label><input type="checkbox" id="sw-hud"> Show score, lives and timer</label>
+      <label><input type="checkbox" id="sw-fast"> Fast fall speed</label>
+      <label><input type="checkbox" id="sw-small"> Small text</label>
+    </div>
+
+    <button id="launch-button">Launch this version</button>
+    <p class="hint">P = panel &nbsp;·&nbsp; 1 / 2 / 3 = presets &nbsp;·&nbsp; Esc = back to panel</p>
+  </div>
+
+  <!-- INSTRUCTION SCREEN -->
+  <div id="instruction-screen" class="screen hidden">
+    <h2>How to Play</h2>
+    <ul id="rules-list">
+      <li><strong>Objective:</strong> Shoot the "Weak Passwords" to score points before time runs out.</li>
+      <li><strong>Watch Out:</strong> Do not shoot the garbled "Strong Passwords," or you will lose a life.</li>
+      <li><strong>Lives:</strong> You have 3 lives in total.</li>
+      <li><strong>Timer:</strong> The game session lasts for 1 minute.</li>
+      <li><strong>Controls:</strong> Click the left mouse button to "shoot" a password.</li>
+    </ul>
+    <div id="weak-password-info">
+      <h3>What Are "Weak Passwords"?</h3>
+      <p>They are passwords that are easy for hackers to guess. Look for these types:</p>
+      <ul>
+        <li><strong>Common &amp; Short:</strong> like <code>password</code>, <code>123456</code>, or <code>qwerty</code>.</li>
+        <li><strong>Personal Details:</strong> like <code>john1995</code> or <code>lisa88</code>.</li>
+        <li><strong>Single Dictionary Words:</strong> like <code>sunflower</code> or <code>dragon</code>.</li>
+      </ul>
+    </div>
+    <button id="understood-button">I Got It!</button>
+  </div>
+
+  <!-- START SCREEN -->
+  <div id="start-screen" class="screen hidden">
+    <h1>Password Blaster</h1>
+    <button id="start-button">Start Game</button>
+  </div>
+
+  <!-- GAME -->
+  <div id="game-container" class="screen hidden">
+    <div id="game-info">
+      <span>Time: <span id="time-left">60</span>s</span>
+      <span>Lives: <span id="lives-left">3</span></span>
+      <span>Score: <span id="score">0</span></span>
+    </div>
+    <div id="password-container"></div>
+  </div>
+
+  <!-- GAME OVER -->
+  <div id="game-over" class="screen hidden">
+    <h2>Game Over!</h2>
+    <p>Your Final Score: <span id="final-score">0</span></p>
+    <button id="restart-button">Play Again</button>
+    <button id="back-to-panel">Change the design</button>
+  </div>
+
+</main>
+
+<div id="feedback-modal-overlay" class="hidden">
+  <div id="feedback-modal">
+    <h2 id="feedback-title">Oops! A Mistake!</h2>
+    <p id="feedback-explanation">This is where the explanation will go.</p>
+    <button id="continue-button">Continue Game</button>
+  </div>
+</div>
+
+<audio id="background-music" src="background-music.mp3" loop></audio>
+<audio id="error-sound" src="error-sound.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>

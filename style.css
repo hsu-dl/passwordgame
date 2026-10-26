@@ -1,0 +1,142 @@
+/* Basic body styling */
+body { font-family: 'Courier New', Courier, monospace; background-color: #0a0a23; color: #ffffff; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+#app-container { position: relative; width: 100%; max-width: 900px; display: flex; justify-content: center; align-items: center; }
+.screen { width: 100%; display: flex; flex-direction: column; align-items: center; }
+
+/* Instruction Screen Styles */
+#instruction-screen { text-align: left; background-color: #1b1b32; border: 2px solid #00ff00; padding: 20px 40px; border-radius: 10px; max-width: 600px; }
+#instruction-screen h2 { color: #00ff00; text-shadow: 0 0 5px #00ff00; font-size: 2.2em; margin-bottom: 20px; text-align: center; }
+#rules-list { list-style-type: none; padding: 0; margin: 0 0 25px 0; }
+#rules-list li { font-size: 1.1em; margin-bottom: 15px; line-height: 1.5; }
+#rules-list li::before { content: '» '; color: #00ff00; font-weight: bold; margin-right: 10px; }
+#understood-button { background-color: #00ff00; color: #000000; border: none; padding: 15px 30px; font-size: 1.2em; font-family: 'Courier New', Courier, monospace; cursor: pointer; border-radius: 5px; text-transform: uppercase; margin-top: 15px; }
+
+/* Unified styles for the weak password explanation */
+#weak-password-info { margin-top: 30px; width: 100%; padding-left: 0; }
+#weak-password-info h3 { font-size: 1.6em; color: #00ff00; text-align: center; margin-bottom: 15px; }
+#weak-password-info p { text-align: left; margin-bottom: 15px; font-size: 1.1em; line-height: 1.5; }
+#weak-password-info ul { list-style: none; padding: 0; }
+#weak-password-info li { font-size: 1.1em; margin-bottom: 15px; line-height: 1.5; }
+#weak-password-info li::before { content: '» '; color: #00ff00; font-weight: bold; margin-right: 10px; }
+#weak-password-info code { background-color: transparent;  color: #ff00ff; font-weight: bold; font-size: 1.1em; padding: 0; border-radius: 0; }
+
+/* Start Screen Styles */
+#start-screen h1 { font-size: 3em; color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+#start-button { background-color: #00ff00; color: #000000; border: none; padding: 20px 40px; font-size: 1.5em; font-family: 'Courier New', Courier, monospace; cursor: pointer; border-radius: 5px; margin-top: 20px; text-transform: uppercase; }
+
+/* Game Container & Info Bar */
+#game-info { background-color: #1b1b32; border: 2px solid #00ff00; padding: 10px 20px; border-radius: 8px; margin-bottom: 20px; width: 100%; max-width: 900px; display: flex; justify-content: space-around; font-size: 1.2em; }
+#password-container { width: 100%; max-width: 900px; height: 550px; background-color: #000000; border: 3px dashed #ff00ff; border-radius: 10px; overflow: hidden; position: relative; padding: 10px; }
+
+/* Other Game Elements */
+.password { position: absolute; cursor: pointer; font-size: 1.2em; padding: 5px 10px; background-color: #333; border: 1px solid #777; border-radius: 5px; user-select: none; white-space: nowrap; animation: fallDown 6s linear; }
+.password:hover { background-color: #00ff00; color: #000000; border-color: #ffffff; }
+
+#game-over { background-color: rgba(0, 0, 0, 0.85); padding: 40px; border: 2px solid #ff0000; border-radius: 10px; text-align: center; }
+#game-over h2 { color: #ff0000; font-size: 2.5em; }
+#restart-button { background-color: #00ff00; color: #000000; border: none; padding: 15px 30px; font-size: 1.2em; font-family: 'Courier New', Courier, monospace; cursor: pointer; border-radius: 5px; margin-top: 20px; }
+
+.hidden { display: none !important; }
+
+@keyframes fallDown { from { transform: translateY(-100px); } to { transform: translateY(600px); } }
+
+/* --- 新增: Feedback Modal Styles --- */
+#feedback-modal-overlay {
+    position: fixed; /* 固定在視窗上 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 確保在最頂層 */
+}
+
+#feedback-modal {
+    background-color: #1b1b32;
+    border: 2px solid #ff0000; /* 紅色邊框表示錯誤 */
+    border-radius: 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+#feedback-modal h2 {
+    color: #ff0000;
+    font-size: 2em;
+    margin-top: 0;
+}
+
+#feedback-modal p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+#continue-button {
+    background-color: #00ff00;
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* ===== Design Switchboard additions ===== */
+#panel-toggle {
+    position: fixed; top: 14px; right: 16px; z-index: 1200;
+    background: transparent; color: #00ff00; border: 1px solid #00ff00;
+    border-radius: 6px; font-size: 1.1em; line-height: 1; padding: 6px 10px;
+    cursor: pointer; opacity: .45;
+}
+#panel-toggle:hover { opacity: 1; }
+
+#presenter-panel {
+    background-color: #1b1b32; border: 2px solid #00ff00; border-radius: 10px;
+    padding: 30px 40px; max-width: 720px; text-align: center;
+}
+#presenter-panel h2 { color: #00ff00; text-shadow: 0 0 5px #00ff00; font-size: 2.2em; margin: 0 0 6px; }
+#presenter-panel .sub { margin: 0 0 26px; font-size: 1.05em; color: #b9b9d6; }
+
+#presets { display: flex; gap: 12px; width: 100%; margin-bottom: 26px; }
+.preset {
+    flex: 1; background-color: #0a0a23; color: #ffffff; border: 2px solid #444466;
+    border-radius: 8px; padding: 16px 10px; cursor: pointer; text-align: center;
+    font-family: 'Courier New', Courier, monospace; font-size: 1.05em; line-height: 1.35;
+}
+.preset:hover { border-color: #00ff00; }
+.preset.active { border-color: #00ff00; background-color: #10301a; box-shadow: 0 0 12px rgba(0,255,0,.35); }
+.preset .k {
+    display: block; margin: 0 auto 8px; width: 26px; height: 26px; line-height: 26px;
+    border-radius: 50%; background-color: #00ff00; color: #000; font-weight: bold; font-size: .9em;
+}
+.preset small { display: block; margin-top: 8px; color: #9a9ab8; font-size: .82em; }
+
+#switches { width: 100%; text-align: left; margin-bottom: 26px; }
+#switches label {
+    display: block; padding: 9px 4px; font-size: 1.05em; cursor: pointer;
+    border-bottom: 1px solid #2b2b45;
+}
+#switches input { margin-right: 12px; transform: scale(1.25); accent-color: #00ff00; }
+
+#launch-button {
+    background-color: #00ff00; color: #000; border: none; padding: 16px 34px;
+    font-size: 1.25em; font-family: 'Courier New', Courier, monospace; cursor: pointer;
+    border-radius: 5px; text-transform: uppercase;
+}
+#presenter-panel .hint { margin: 18px 0 0; font-size: .88em; color: #7a7a99; }
+
+#back-to-panel {
+    background-color: transparent; color: #00ff00; border: 1px solid #00ff00;
+    padding: 12px 24px; font-size: 1em; font-family: 'Courier New', Courier, monospace;
+    cursor: pointer; border-radius: 5px; margin-top: 12px; margin-left: 10px;
+}
+
+/* Wrong-persona switch: text too small for the player it was meant for */
+body.small-text .password { font-size: 0.72em; padding: 3px 6px; }
